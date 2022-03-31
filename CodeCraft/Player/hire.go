@@ -5,7 +5,7 @@ import (
 	"fmt"
 )
 
-//func ShowRoster() {}
+//create struct (or interface) shop
 
 func Hire(p *Player) {
 
