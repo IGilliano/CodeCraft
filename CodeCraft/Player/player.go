@@ -28,6 +28,7 @@ func (p *Player) Hire() {
 	if n > 0 && n < 4 {
 		newUnit := maker[n]()
 		p.Army = append(p.Army, newUnit)
+		newUnit.Price(p)
 	} else if n == 0 {
 		fmt.Println("Okay then. Come back later!")
 	} else {

@@ -20,8 +20,10 @@ func Ready() bool {
 func main() {
 	player1 := Player.NewPlayer()
 	//player2 := Player.NewPlayer()
-
-	fmt.Println("Hello and welcome to the CodeCraft! Place, where two of you could contest for... nothing but fun!")
-	player1.ChooseName()
-	Ready()
+	player1.Hire()
+	/*
+		fmt.Println("Hello and welcome to the CodeCraft! Place, where two of you could contest for... nothing but fun!")
+		player1.ChooseName()
+		Ready()
+		fmt.Println("22")*/
 }

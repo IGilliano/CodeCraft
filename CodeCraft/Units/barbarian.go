@@ -1,6 +1,9 @@
 package Units
 
-import "fmt"
+import (
+	"awesomeProject1/CodeCraft/Player"
+	"fmt"
+)
 
 type Barbarian struct {
 	Class  string
@@ -35,6 +38,17 @@ func (b Barbarian) String() string {
 func (b *Barbarian) Rage() {
 	if b.HP <= 50 {
 		b.Damage = 75
+	}
+}
+
+func (b Barbarian) Price(p *Player.Player) bool {
+	if p.Gold >= b.Cost {
+		p.Gold = p.Gold - b.Cost
+		fmt.Println("Done!")
+		return true
+	} else {
+		fmt.Println("Oh! Its too expensive for you, buddy!")
+		return false
 	}
 }
 
