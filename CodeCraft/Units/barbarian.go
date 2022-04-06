@@ -44,10 +44,8 @@ func (b *Barbarian) Rage() {
 func (b Barbarian) Price(p *Player.Player) bool {
 	if p.Gold >= b.Cost {
 		p.Gold = p.Gold - b.Cost
-		fmt.Println("Done!")
 		return true
 	} else {
-		fmt.Println("Oh! Its too expensive for you, buddy!")
 		return false
 	}
 }
