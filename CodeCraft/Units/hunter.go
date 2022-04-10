@@ -1,7 +1,6 @@
 package Units
 
 import (
-	"awesomeProject1/CodeCraft/Player"
 	"fmt"
 )
 
@@ -35,11 +34,6 @@ func (h Hunter) String() string {
 	return fmt.Sprintf("This is %s with stats: atk = %d\n", h.Class, h.Damage)
 }
 
-func (h Hunter) Price(p *Player.Player) bool {
-	if p.Gold >= h.Cost {
-		p.Gold = p.Gold - h.Cost
-		return true
-	} else {
-		return false
-	}
+func (h Hunter) Price() int64 {
+	return h.Cost
 }

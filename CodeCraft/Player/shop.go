@@ -26,9 +26,9 @@ func (p *Player) Hire(s Shop) {
 	fmt.Scanf("%d", &n)
 	if n > 0 && n < 4 {
 		newUnit := s.maker[n]()
-		if newUnit.Price(p) == true {
+		if newUnit.Price() <= p.Gold {
 			p.Army = append(p.Army, newUnit)
-			fmt.Println("Done!")
+			fmt.Println("Done! Wonna hire more?")
 		} else {
 			fmt.Println("Oh! Its too expensive for you, buddy!")
 		}
@@ -37,4 +37,5 @@ func (p *Player) Hire(s Shop) {
 	} else {
 		fmt.Println("I dont get it. You need to choose one of my offers. Please, try again")
 	}
+
 }

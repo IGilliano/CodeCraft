@@ -24,7 +24,7 @@ func (p *Player) ChooseName() {
 }
 
 func NewPlayer() Player {
-	p := Player{1000, make([]Units.Unit, 0), ""}
+	p := Player{100, make([]Units.Unit, 0), ""}
 	p.ChooseName()
 	return p
 

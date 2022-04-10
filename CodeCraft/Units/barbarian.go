@@ -1,7 +1,6 @@
 package Units
 
 import (
-	"awesomeProject1/CodeCraft/Player"
 	"fmt"
 )
 
@@ -41,13 +40,8 @@ func (b *Barbarian) Rage() {
 	}
 }
 
-func (b Barbarian) Price(p *Player.Player) bool {
-	if p.Gold >= b.Cost {
-		p.Gold = p.Gold - b.Cost
-		return true
-	} else {
-		return false
-	}
+func (b Barbarian) Price() int64 {
+	return b.Cost
 }
 
 //Knight := Unit{"Warrior", 100, 25, 40, 100}
