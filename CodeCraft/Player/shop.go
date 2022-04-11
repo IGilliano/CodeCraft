@@ -2,6 +2,7 @@ package Player
 
 import (
 	"awesomeProject1/CodeCraft/Units"
+	"awesomeProject1/CodeCraft/Utils"
 	"fmt"
 )
 
@@ -20,22 +21,32 @@ func NewShop() Shop {
 	return New
 }
 
-func (p *Player) Hire(s Shop) {
-	var n int64
+func (s Shop) SelectUnit(p *Player) bool {
+	var r bool
 	fmt.Println("Which one do you want to hire?\n 1: Barbarian\n 2: Hunter\n 3: Knight\n 0: Exit")
-	fmt.Scanf("%d", &n)
-	if n > 0 && n < 4 {
-		newUnit := s.maker[n]()
-		if newUnit.Price() <= p.Gold {
-			p.Army = append(p.Army, newUnit)
-			fmt.Println("Done! Wonna hire more?")
-		} else {
-			fmt.Println("Oh! Its too expensive for you, buddy!")
-		}
-	} else if n == 0 {
+	u := Utils.ScanInt()
+	if u > 0 && u < 4 {
+		r = s.Hire(u, p, r)
+	} else if u == 0 {
 		fmt.Println("Okay then. Come back later!")
+		r = false
+		return r
 	} else {
 		fmt.Println("I dont get it. You need to choose one of my offers. Please, try again")
 	}
+	return r
+}
 
+func (s Shop) Hire(u int64, p *Player, r bool) bool {
+	newUnit := s.maker[u]()
+	c := newUnit.GetCost()
+	if c <= p.Gold {
+		p.Army = append(p.Army, newUnit)
+		p.Gold = p.Gold - c
+		fmt.Println("Done! Wonna hire more?\n 1: Yes 2: No")
+		r = p.IsReady()
+	} else {
+		fmt.Println("Oh! Its too expensive for you, buddy!")
+	}
+	return r
 }

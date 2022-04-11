@@ -2,10 +2,8 @@ package Player
 
 import (
 	"awesomeProject1/CodeCraft/Units"
-	"bufio"
+	"awesomeProject1/CodeCraft/Utils"
 	"fmt"
-	"os"
-	"strconv"
 )
 
 type Player struct {
@@ -15,10 +13,8 @@ type Player struct {
 }
 
 func (p *Player) ChooseName() {
-	scanner := bufio.NewScanner(os.Stdin)
 	fmt.Println("May I know your name?")
-	scanner.Scan()
-	p.Name = scanner.Text()
+	p.Name = Utils.ScanText()
 	fmt.Println("Greetings,", p.Name, "!")
 
 }
@@ -30,11 +26,8 @@ func NewPlayer() Player {
 
 }
 
-func (Player) Ready() bool {
-	fmt.Println("What do you want to do?\n 1: Go to shop\n 2: Ready for fight")
-	scanner := bufio.NewScanner(os.Stdin)
-	scanner.Scan()
-	i, _ := strconv.ParseInt(scanner.Text(), 10, 64)
+func (Player) IsReady() bool {
+	i := Utils.ScanInt()
 	if i == 1 {
 		return true
 	} else if i == 2 {

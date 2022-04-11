@@ -34,6 +34,6 @@ func (h Hunter) String() string {
 	return fmt.Sprintf("This is %s with stats: atk = %d\n", h.Class, h.Damage)
 }
 
-func (h Hunter) Price() int64 {
+func (h Hunter) GetCost() int64 {
 	return h.Cost
 }

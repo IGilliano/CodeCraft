@@ -40,7 +40,7 @@ func (b *Barbarian) Rage() {
 	}
 }
 
-func (b Barbarian) Price() int64 {
+func (b Barbarian) GetCost() int64 {
 	return b.Cost
 }
 
