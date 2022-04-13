@@ -17,3 +17,7 @@ func main() {
 		r = shop.SelectUnit(p1)
 	}
 }
+
+func xyz() {
+
+}
