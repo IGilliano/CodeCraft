@@ -20,10 +20,13 @@ func (p *Player) ChooseName() {
 }
 
 func NewPlayer() Player {
-	p := Player{100, make([]Units.Unit, 0), ""}
-	p.ChooseName()
+	p := Player{1000, make([]Units.Unit, 0), ""}
 	return p
 
+}
+
+func (p Player) Inventory() {
+	fmt.Println(p.Army)
 }
 
 func (Player) IsReady() bool {
