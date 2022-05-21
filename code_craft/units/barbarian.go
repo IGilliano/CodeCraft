@@ -1,8 +1,6 @@
-package Units
+package units
 
-import (
-	"fmt"
-)
+import "fmt"
 
 type Barbarian struct {
 	Class  string
@@ -32,17 +30,16 @@ func (b *Barbarian) GetHit(atk int64) bool {
 }
 
 func (b Barbarian) String() string {
-	return fmt.Sprintf("This is %s with stats: HP = %d, atk = %d\n", b.Class, b.HP, b.Damage)
+	return fmt.Sprintf("Barbarian (HP = %d, atk = %d)", b.HP, b.Damage)
 }
+
 func (b *Barbarian) Rage() {
 	if b.HP <= 50 {
 		b.Damage = 75
+		fmt.Println("Barbarian is getting furious!")
 	}
 }
 
 func (b Barbarian) GetCost() int64 {
 	return b.Cost
 }
-
-//Knight := Unit{"Warrior", 100, 25, 40, 100}
-//Hunter := Unit{"Archer", 75, 0, 75, 100}

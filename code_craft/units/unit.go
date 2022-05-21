@@ -1,4 +1,4 @@
-package Units
+package units
 
 type Unit interface {
 	Attack(enemy Unit) bool

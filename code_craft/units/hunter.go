@@ -1,4 +1,4 @@
-package Units
+package units
 
 import (
 	"fmt"
@@ -31,7 +31,7 @@ func (h Hunter) GetHit(atk int64) bool {
 }
 
 func (h Hunter) String() string {
-	return fmt.Sprintf("This is %s with stats: atk = %d\n", h.Class, h.Damage)
+	return fmt.Sprintf("Hunter (HP = %d, atk = %d)", h.HP, h.Damage)
 }
 
 func (h Hunter) GetCost() int64 {
